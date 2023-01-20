@@ -38,7 +38,7 @@ function saveNotes(notes) {
 function createNote(id, content, fixed) {
   const element = document.createElement("div");
 
-  element.classList.add("note");
+  element.classList.add(...["note", "col-md-4", "col-12"]);
 
   const textarea = document.createElement("textarea");
 
@@ -83,6 +83,9 @@ function createNote(id, content, fixed) {
   element.querySelector(".bi-pin").addEventListener("click", () => {
     toggleFixNote(id);
   });
+  if (fixed) {
+    pinIcon.classList.add("pin-green");
+  }
 
   element
     .querySelector(".bi-file-earmark-plus")
